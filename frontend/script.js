@@ -45,3 +45,37 @@ $('.currency .right').click(() => {
     $('.currency .value2').val(data.result);
   });
 });
+
+////////
+
+$('.speed .left').click(() => {
+  const type = 'speed';
+  const fromValue = $('.speed .value2').val();
+  const fromUnit = $('.speed .unit2').val();
+  const toUnit = $('.speed .unit1').val();
+  console.log({ type, fromValue, fromUnit, toUnit });
+
+  if (fromUnit === toUnit) {
+    $('.speed .value1').val( fromValue );
+  } else if (fromUnit === 'km/h' && toUnit === 'mph') {
+    $('.speed .value1').val( fromValue / 1.6 );
+  } else if (fromUnit === 'mph' && toUnit === 'km/h') {
+    $('.speed .value1').val( fromValue * 1.6 );
+  }
+});
+
+$('.speed .right').click(() => {
+  const type = 'speed';
+  const fromValue = $('.speed .value1').val();
+  const fromUnit = $('.speed .unit1').val();
+  const toUnit = $('.speed .unit2').val();
+  console.log({ type, fromValue, fromUnit, toUnit });
+
+  if (fromUnit === toUnit) {
+    $('.speed .value2').val( fromValue );
+  } else if (fromUnit === 'km/h' && toUnit === 'mph') {
+    $('.speed .value2').val( fromValue / 1.6 );
+  } else if (fromUnit === 'mph' && toUnit === 'km/h') {
+    $('.speed .value2').val( fromValue * 1.6 );
+  }
+});
